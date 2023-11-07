@@ -30,6 +30,8 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('ui/backend')}}/assets/css/style.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 

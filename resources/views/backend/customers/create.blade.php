@@ -7,7 +7,7 @@
     <form method="POST" action="{{ route('customers.store') }}">
         @csrf
         <div class="form-group">
-            <label for="First_Name">First Name</label>
+            <label for="First_Name">Full Name</label>
             <input type="text" class="form-control" id="First_Name" name="First_Name" required>
         </div>
         <div class="form-group">

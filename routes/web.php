@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\LeaveRequestController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +94,68 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
     // Delete a company
     Route::delete('/companies/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');
+
+
+     // List companies
+     Route::get('/sales', [SaleController::class, 'index'])->name('sales.index');
+    
+     // Create a new company
+     Route::get('/sales/create', [SaleController::class, 'create'])->name('sales.create');
+     Route::post('/sales', [SaleController::class, 'store'])->name('sales.store');
+     
+     // Show a specific company
+     Route::get('/sales/{sale}', [SaleController::class, 'show'])->name('sales.show');
+     
+     // Edit a company
+     Route::get('/sales/{sale}/edit', [SaleController::class, 'edit'])->name('sales.edit');
+     Route::put('/sales/{sale}', [SaleController::class, 'update'])->name('sales.update');
+     
+     // Delete a company
+     Route::delete('/sales/{sale}', [SaleController::class, 'destroy'])->name('sales.destroy');
+
+      // Edit a company
+      Route::get('/sales-chart', [SaleController::class, 'salesChart'])->name('sales.chart');
+});
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // List all users and their roles
+    Route::get('/user-roles', [UserRoleController::class, 'index'])->name('user-roles.index');
+
+    // Make a user an admin
+    Route::post('/user-roles/make-admin/{user}', [UserRoleController::class, 'makeAdmin'])->name('user-roles.make-admin');
+
+    // Remove admin privileges from a user
+    Route::post('/user-roles/remove-admin/{user}', [UserRoleController::class, 'removeAdmin'])->name('user-roles.remove-admin');
+
+    // Add the status update route
+    Route::put('/leave-requests/{leaveRequest}', [LeaveRequestController::class, 'updateStatus'])->name('leave-requests.status-update');
+});
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/leave-requests', [LeaveRequestController::class, 'index'])->name('leave-requests.index');
+    Route::get('/leave-requests/create', [LeaveRequestController::class, 'create'])->name('leave-requests.create');
+    Route::post('/leave-requests', [LeaveRequestController::class, 'store'])->name('leave-requests.store');
+
+      
+    // Add the delete route
+    Route::delete('/leave-requests/{leaveRequest}', [LeaveRequestController::class, 'destroy'])->name('leave-requests.destroy');
+
+    Route::get('/leave-requests/my-requests', [LeaveRequestController::class, 'myRequests'])->name('leave-requests.my-requests');
+
+
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    
+    
+
 });
 
 

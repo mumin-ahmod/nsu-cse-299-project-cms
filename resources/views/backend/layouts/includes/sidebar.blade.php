@@ -41,7 +41,7 @@
 
                 </li>
                 <li>
-                    <a href="components-pagination.html">
+                    <a href="{{route('customers.index')}}">
                         <i class="bi bi-circle"></i><span>All Customers</span>
                     </a>
 
@@ -58,14 +58,37 @@
             <ul id="compn-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
                 <li>
-                    <a href="{{route('customers.create')}}">
+                    <a href="{{route('companies.create')}}">
                         <i class="bi bi-circle"></i><span>Add Company</span>
                     </a>
 
                 </li>
                 <li>
-                    <a href="components-pagination.html">
+                    <a href="{{route('companies.index')}}">
                         <i class="bi bi-circle"></i><span>All Companies</span>
+                    </a>
+
+                </li>
+            </ul>
+        </li><!-- End Components Nav -->
+
+        
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#sale-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Sales</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="sale-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="{{route('sales.create')}}">
+                        <i class="bi bi-circle"></i><span>Add Sales Data</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{{route('sales.index')}}">
+                        <i class="bi bi-circle"></i><span>All Sales Data</span>
                     </a>
 
                 </li>
@@ -80,9 +103,18 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-                <a href="forms-layouts.html">
+                <a href="{{route('leave-requests.my-requests')}}">
                     <i class="bi bi-circle"></i><span>Leave Request</span>
                 </a>
+
+                <a href="{{route('leave-requests.index')}}">
+                    <i class="bi bi-circle"></i><span>Approve Leave Requests</span>
+                </a>
+
+                <a href="{{route('products.index')}}">
+                    <i class="bi bi-circle"></i><span>Products</span>
+                </a>
+
 
 
                 <a href="forms-layouts.html">
@@ -113,8 +145,8 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-            <a href="charts-echarts.html">
-                <i class="bi bi-circle"></i><span>ECharts</span>
+            <a href="{{route('sales.chart')}}">
+                <i class="bi bi-circle"></i><span>Sales Analytics</span>
             </a>
     </li>
     </ul>
@@ -131,7 +163,7 @@
     </li><!-- End Profile Page Nav -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{{route('user-roles.index')}}">
             <i class="bi bi-person"></i>
             <span>Make Admin</span>
         </a>
