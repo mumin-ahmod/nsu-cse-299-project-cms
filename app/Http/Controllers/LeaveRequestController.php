@@ -53,7 +53,7 @@ class LeaveRequestController extends Controller
 
             $leaveRequest->save();
 
-            return redirect()->route('leave-requests.index')->with('success', 'Leave request created successfully.');
+            return redirect()->route('leave-requests.my-requests')->with('success', 'Leave request created successfully.');
         } catch (\Exception $e) {
             return back()->with('error', 'An error occurred while creating the leave request.');
         }

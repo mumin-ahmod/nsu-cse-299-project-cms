@@ -119,17 +119,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/leave-requests/create', [LeaveRequestController::class, 'create'])->name('leave-requests.create');
     Route::post('/leave-requests', [LeaveRequestController::class, 'store'])->name('leave-requests.store');
 
-    // List companies
-    Route::get('/sales/all', [SaleController::class, 'index'])->name('sales.index');
-    // List customers
-    Route::get('/customers/all', [CustomerController::class, 'index'])->name('customers.index');
-
+// List sales
+Route::get('/sales-all', [SaleController::class, 'index'])->name('sales.index');
+// List customers
+Route::get('/customers-all', [CustomerController::class, 'index'])->name('customers.index');
+    
     // Add the delete route
     Route::delete('/leave-requests/{leaveRequest}', [LeaveRequestController::class, 'destroy'])->name('leave-requests.destroy');
 
     Route::get('/leave-requests/my-requests', [LeaveRequestController::class, 'myRequests'])->name('leave-requests.my-requests');
     // List companies
-    Route::get('/companies/all', [CompanyController::class, 'index'])->name('companies.index');
+    Route::get('/companies-all', [CompanyController::class, 'index'])->name('companies.index');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
@@ -140,5 +140,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 });
+
+
+
 
 require __DIR__ . '/auth.php';

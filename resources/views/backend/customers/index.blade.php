@@ -4,7 +4,11 @@
 
     <div class="container">
         <h2>Customer List</h2>
+
+        @if (auth()->user()->isAdmin())
         <a href="{{ route('customers.create') }}" class="btn btn-primary mb-2">Add Customer</a>
+        @endif
+      
 
         <table class="table">
             <thead>

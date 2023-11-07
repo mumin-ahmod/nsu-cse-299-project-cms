@@ -27,7 +27,10 @@
                     <td>
                         {{ $leaveRequest->status }}
                     </td>
+
                     <td>
+
+                        @if (auth()->user()->isAdmin())
                         <form method="POST" action="{{ route('leave-requests.status-update', $leaveRequest) }}" style="display: inline;">
                             @csrf
                             @method('PUT')
@@ -39,6 +42,8 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
+
+                        @endif
                     </td>
                 </tr>
             @endforeach

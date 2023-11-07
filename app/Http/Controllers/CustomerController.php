@@ -10,6 +10,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
+        //dd('index cust');
         $customers = Customer::latest()->get();
 
         return view('backend.customers.index', compact('customers'));

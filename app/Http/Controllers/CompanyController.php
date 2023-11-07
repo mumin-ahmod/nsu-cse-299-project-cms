@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    //all data show
     public function index()
     {
         $companies = Company::all();
         return view('backend.companies.index', compact('companies'));
     }
 
+    // input form
     public function create()
     {
         $customers = Customer::all(); // Retrieve the list of customers
@@ -22,6 +24,7 @@ class CompanyController extends Controller
         return view('backend.companies.create', compact('customers'));
     }
 
+    //store korar jonno
     public function store(Request $request)
     {
         $data = $request->validate([
