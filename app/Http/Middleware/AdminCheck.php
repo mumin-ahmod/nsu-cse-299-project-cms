@@ -15,12 +15,17 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->isAdmin()) {
-            // User is an admin, allow access to the route
-            return $next($request);
+        if (auth()->check()) {
+            $user = auth()->user();
+            $isAdmin = $user->roles->contains('role', 'admin');
+            
+            if ($isAdmin) {
+                // User is an admin, allow access to the route
+                return $next($request);
+            }
         }
 
         // User is not an admin, redirect or deny access
-        return redirect('/home'); // You can change this to a different route or response as needed.
+        return redirect('/user-dashboard');
     }
 }

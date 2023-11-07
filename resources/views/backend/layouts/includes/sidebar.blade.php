@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="nav-link " href="index.html">
                 <i class="bi bi-grid"></i>
-                <span>Employees Dashboard</span>
+                <span>Admin Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
@@ -24,6 +24,55 @@
                 </li>
             </ul>
         </li><!-- End Components Nav -->
+
+
+        
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#cast-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Customers</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="cast-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="{{route('customers.create')}}">
+                        <i class="bi bi-circle"></i><span>Add Customers</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="components-pagination.html">
+                        <i class="bi bi-circle"></i><span>All Customers</span>
+                    </a>
+
+                </li>
+            </ul>
+        </li><!-- End Components Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#compn-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Companies</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="compn-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="{{route('customers.create')}}">
+                        <i class="bi bi-circle"></i><span>Add Company</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="components-pagination.html">
+                        <i class="bi bi-circle"></i><span>All Companies</span>
+                    </a>
+
+                </li>
+            </ul>
+        </li><!-- End Components Nav -->
+
+
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -82,28 +131,17 @@
     </li><!-- End Profile Page Nav -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-            <i class="bi bi-question-circle"></i>
-            <span>F.A.Q</span>
+        <a class="nav-link collapsed" href="users-profile.html">
+            <i class="bi bi-person"></i>
+            <span>Make Admin</span>
         </a>
-    </li><!-- End F.A.Q Page Nav -->
+    </li><!-- End Profile Page Nav -->
+
+
+
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-            <i class="bi bi-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </li><!-- End Contact Page Nav -->
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-            <i class="bi bi-card-list"></i>
-            <span>Register</span>
-        </a>
-    </li><!-- End Register Page Nav -->
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="{{route('logout')}}">
             <i class="bi bi-box-arrow-in-right"></i>
             <span>Log out</span>
         </a>

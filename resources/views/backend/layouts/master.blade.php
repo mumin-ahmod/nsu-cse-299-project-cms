@@ -64,8 +64,6 @@
       @yield('main_content')
 
 
-      @include('backend.layouts.includes.ttt')
-   
         <div>
         <!-- End Left side columns -->
 
