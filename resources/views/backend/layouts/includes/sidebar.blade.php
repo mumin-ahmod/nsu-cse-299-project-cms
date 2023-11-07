@@ -9,47 +9,48 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        @if (auth()->user()->isAdmin())
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#ad-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Admin Controls</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="ad-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#ad-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Admin Controls</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="ad-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('customers.create') }}">
+                            <i class="bi bi-circle"></i><span>Add Customers</span>
+                        </a>
 
-                <li>
-                    <a href="{{ route('customers.create') }}">
-                        <i class="bi bi-circle"></i><span>Add Customers</span>
-                    </a>
+                    </li>
 
-                </li>
+                    <li>
+                        <a href="{{ route('companies.create') }}">
+                            <i class="bi bi-circle"></i><span>Add Company</span>
+                        </a>
 
-                <li>
-                    <a href="{{ route('companies.create') }}">
-                        <i class="bi bi-circle"></i><span>Add Company</span>
-                    </a>
+                    </li>
 
-                </li>
+                    <li>
+                        <a href="{{ route('sales.create') }}">
+                            <i class="bi bi-circle"></i><span>Add Sales Data</span>
+                        </a>
 
-                <li>
-                    <a href="{{ route('sales.create') }}">
-                        <i class="bi bi-circle"></i><span>Add Sales Data</span>
-                    </a>
+                    </li>
 
-                </li>
-
-                <li>
-                    <a href="{{ route('leave-requests.index') }}">
-                        <i class="bi bi-circle"></i><span>Approve Leave Requests</span>
-                    </a>
-                </li>
-
-
+                    <li>
+                        <a href="{{ route('leave-requests.index') }}">
+                            <i class="bi bi-circle"></i><span>Approve Leave Requests</span>
+                        </a>
+                    </li>
 
 
 
-            </ul>
-        </li><!-- End Components Nav -->
+
+
+                </ul>
+            </li><!-- End Components Nav -->
+        @endif
 
 
 
@@ -159,7 +160,7 @@
     <li class="nav-heading">Pages</li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{{ route('profile.edit') }}">
             <i class="bi bi-person"></i>
             <span>Profile</span>
         </a>

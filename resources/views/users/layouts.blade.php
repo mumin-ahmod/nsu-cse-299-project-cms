@@ -71,7 +71,7 @@
             <div>
                 <!-- End Left side columns -->
 
-
+                @yield('main_content')
 
             </div>
         </section>
